@@ -1,13 +1,47 @@
-body, html
-{
-	background-color: #FFFFFF !important;
+body, html {
+	width: 100%;
+	height: 100%;
 }
-.intro {
-	padding-bottom: 13%;
+
+.parallax-container, .parallax {
+  width: 100%;
+  height: 100%;
 }
+
+.table {
+  width: 100%;
+  height: 100%;
+  display: table;
+  position: relative;  
+}
+
+.table-cell {
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.name {
+  color: white;
+  font-size: 100px;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+.title2 {
+	color: white;
+  	font-size: 55px;
+  	margin: 0;
+  	padding: 0;
+  	vertical-align: baseline;
+}
+
 .todo {
 	margin-bottom: 90px;
 }
+
 .about h5
 {
 	text-align: center;
@@ -28,17 +62,6 @@ body, html
 	margin-bottom: 45px;
 }
 
-.about .card
-{
-	text-align: center;
-	margin-bottom: 100px;
-}
-
-.about .card img
-{
-	margin-bottom: 15px;
-}
-
 .education h5
 {
 	text-align: center;
@@ -50,11 +73,6 @@ body, html
 {
 	width: 40px;
 	margin-bottom: 45px;
-}
-
-.contact {
-	margin-top: 100px;
-	margin-bottom: 100px;
 }
 
 .experience {
@@ -75,7 +93,12 @@ body, html
 	margin-bottom: 45px;
 }
 
+.contact {
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+
 footer
 {
-	padding-top: 0px;
+	padding-top: 10px;
 }
