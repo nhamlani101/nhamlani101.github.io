@@ -1,0 +1,35 @@
+.about {
+	margin-top: 5%;
+	margin-bottom: 13%;
+}
+
+.experience {
+	margin-bottom: 13%;
+}
+
+.educationStuff {
+	margin-bottom: 13%;	
+}
+h5
+{
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 15px;
+}
+
+h6
+{
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 45px;
+}
+
+hr
+{
+	width: 40px;
+	margin-bottom: 45px;
+}
+
+.linkedin {
+	background-image: url('linkedin.png');
+}
