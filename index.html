@@ -1,121 +1,639 @@
-  <!DOCTYPE html>
-  <html>
-    <head>
-      <title>Noman Hamlani </title>
-      <!--Import Google Icon Font-->
-      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-      <link rel="stylesheet" href="css/styles.css"> 
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noman Hamlani - Product Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        /* Custom Base Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F7F7F7; /* Airbnb-like light grey background */
+            color: #222222; /* Airbnb primary text color */
+            scroll-behavior: smooth;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
 
-    <body>
-    <div class="overall white">
-    <!-- Top nav bar -->
-    <div class="navbar-fixed" id="about">
-      <nav class="z=depth 5">
-      <div class="nav-wrapper blue">
-        <a href="#!" class="brand-logo center">Noman Hamlani</a>
-        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-        <ul class="right hide-on-med-and-down">
-          <li><a href="#about">About me</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#experience">Work Experience</a></li>
-        </ul>
-        <ul class="side-nav" id="mobile-demo">
-          <li><a href="#about" class="mobileNav">About me</a></li>
-          <li><a href="#education" class="mobileNav">Education</a></li>
-          <li><a href="#experience" class="mobileNav">Work Experience</a></li>
-        </ul>
-      </div>
-      </nav>
-      </div>
+        /* Container */
+        .content-container {
+            max-width: 1120px; /* Standard container width */
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1.5rem; /* 24px */
+            padding-right: 1.5rem; /* 24px */
+        }
 
-
-<div class="about container">
-      <div class="row">
-      <div class="col l6 s12 m12 offset-l3">
-        <div class="card-panel center-align">
-                      <img src="images/android.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-
-          <span class="black-text center-align"><h5>Noman Hamlani</h5> <br> Young technology talent, eager to build software solutions to address challenging business needs. Current junior at New York University pursuing a Bachelor's degree in Computer Science and a minor in Finance.
-          </span>
-        </div>
-      </div>
-    </div>
-    <div id="education"> </div>
-    </div>
-
-      <!--Education -->
-    
-      <div class="educationStuff">
-      <h5>Education</h5>
-      <hr>
-      <div class="container">
-        <ul class="collection">
-          <li class="collection-item avatar">
-            <img src="images/NYU.png" alt="" class="circle">
-            <span class="title">New York University</span>
-            <p>B.S Computer Science, Minor in Finance<br>
-              Class of 2017
-            </p>
-          </li>
-          <li class="collection-item avatar">
-            <img src="images/Brentwood.png" alt="" class="circle">
-            <span class="title">Brentwood High School</span>
-            <p>Class Valedictorian <br>
-              Advanced Regents Diploma with Honors
-            </p>
-          </li>
-        </ul>
-        </div>
-      </div>
-
-      <!-- Work Experience -->
-      <div class="experience" id="experience">
-      <h5>Work Experience</h5>
-      <hr>
-      <div class="container">
-          <ul class="collapsible" data-collapsible="accordion">
-            <li>
-              <div class="collapsible-header active"><i class="material-icons">web</i>Android Intern at the New York Times</div>
-              <div class="collapsible-body"><p>Designed and developed the Bestsellers List feature in the NY Times Android application</p></div>
-            </li>
-            <li>
-              <div class="collapsible-header"><i class="material-icons">play_arrow</i>Software Intern at Mitley Inc.</div>
-              <div class="collapsible-body"><p>Created underlying framework and website design for an NYU startup using SquareSpace technologies</p></div>
-            </li>
-        </ul>
-      </div>
-      </div>
+        @media (min-width: 768px) {
+            .content-container {
+                padding-left: 2.5rem; /* 40px */
+                padding-right: 2.5rem; /* 40px */
+            }
+        }
+         @media (min-width: 1024px) {
+            .content-container {
+                padding-left: 5rem; /* 80px */
+                padding-right: 5rem; /* 80px */
+            }
+        }
 
 
-      <!-- Contact -->
-      <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-    <a class="btn-floating btn-large yellow darken-1">
-      <i class="large material-icons">mode_edit</i>
-    </a>
-    <ul>
-      <li><a href="mailto:nh1083@nyu.edu"class="btn-floating red"><i class="material-icons">email</i> </a></li>
-      <li><a href="https://www.linkedin.com/in/nomanhamlani"class="btn-floating blue"><img src="images/linkedin.png"></a></li>
-    </ul>
-  </div>
+        /* Navigation */
+        .top-nav {
+            background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #EBEBEB; /* Subtle border */
+            position: sticky; /* Sticky nav */
+            top: 0;
+            z-index: 50;
+            transition: box-shadow 0.3s ease;
+        }
+        .top-nav.scrolled {
+             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
 
-  <footer class="page-footer blue">
-          <div class="footer-copyright">
-            <div class="container">Noman Hamlani
-            <a class="grey-text text-lighten-4 right">Still a work in progress!</a>
+        .nav-link {
+            color: #222222;
+            font-weight: 600;
+            padding: 0.5rem 0.75rem;
+            border-radius: 9999px; /* Pill shape */
+            transition: background-color 0.3s ease, color 0.3s ease;
+            position: relative;
+            overflow: hidden; /* For hover effect */
+        }
+        .nav-link:hover {
+            background-color: #f0f0f0; /* Light grey background on hover */
+        }
+         /* Active link style (optional, requires JS) */
+        .nav-link.active {
+            color: #FF385C; /* Airbnb-like accent */
+            font-weight: 700;
+        }
+
+
+        /* Hero Section */
+        .hero {
+            padding-top: 6rem; /* Space for nav */
+            padding-bottom: 4rem;
+            background: linear-gradient(180deg, #ffffff 0%, #F7F7F7 100%); /* Subtle gradient */
+        }
+        .headshot {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
+        }
+        .headshot:hover {
+             transform: scale(1.05) rotate(2deg);
+        }
+
+        /* Section Styling */
+        section {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+        section h2 {
+            font-size: 2.25rem; /* 36px */
+            font-weight: 800;
+            color: #222222;
+            margin-bottom: 2.5rem; /* More space below header */
+            text-align: center;
+        }
+         @media (min-width: 768px) {
+             section h2 {
+                 font-size: 2.75rem; /* 44px */
+                 text-align: left;
+             }
+         }
+
+        /* Card Styling */
+        .content-card {
+            background-color: #ffffff;
+            border-radius: 12px; /* Airbnb's rounded corners */
+            padding: 1.5rem; /* 24px */
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08); /* Airbnb card shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden; /* Ensure content respects border radius */
+        }
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12); /* Enhanced shadow on hover */
+        }
+         @media (min-width: 768px) {
+            .content-card {
+                 padding: 2rem; /* 32px */
+             }
+         }
+
+        /* Work Experience Card */
+        .job-entry {
+            border-bottom: 1px solid #EBEBEB;
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .job-entry:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .company-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            object-fit: contain; /* Use contain for logos */
+            margin-right: 1rem;
+            background-color: #f0f0f0; /* Placeholder background */
+        }
+        .company-name {
+            font-size: 1.125rem; /* 18px */
+            font-weight: 700;
+            color: #222222;
+        }
+        .job-title {
+            font-size: 1rem; /* 16px */
+            font-weight: 600;
+            color: #222222;
+            margin-top: 0.1rem;
+        }
+        .job-details {
+            font-size: 0.875rem; /* 14px */
+            color: #717171; /* Airbnb secondary text */
+            margin-top: 0.25rem;
+        }
+        .job-description-list {
+            list-style: none; /* Remove default bullets */
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+        .job-description-list li {
+            position: relative;
+            padding-left: 1.5rem; /* Space for custom bullet */
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem; /* Slightly larger description text */
+            line-height: 1.6;
+            color: #484848; /* Darker secondary text */
+        }
+        .job-description-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5em; /* Adjust vertical alignment */
+            width: 6px;
+            height: 6px;
+            background-color: #FF385C; /* Accent color bullet */
+            border-radius: 50%;
+        }
+
+        /* Education Card */
+        .education-entry {
+             display: flex;
+             align-items: center;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
+            gap: 1rem;
+        }
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background-color: #ffffff;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            border: 1px solid #EBEBEB;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #484848;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+        }
+        .skill-item:hover {
+             transform: translateY(-3px) scale(1.03);
+             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+             border-color: #dddddd;
+        }
+        .skill-item i { /* Feather icon style */
+            margin-right: 1rem; /* Increased padding */
+            color: #FF385C; /* Accent color */
+            width: 20px; /* Consistent icon size */
+            height: 20px;
+        }
+
+        /* Contact Section */
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            gap: 0.75rem;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid transparent;
+        }
+        .contact-button.primary {
+            background-color: #FF385C; /* Airbnb accent */
+            color: white;
+            box-shadow: 0 4px 10px rgba(255, 56, 92, 0.3);
+        }
+         .contact-button.primary:hover {
+             background-color: #E01C44; /* Darker accent */
+             transform: translateY(-3px) scale(1.02);
+             box-shadow: 0 6px 15px rgba(224, 28, 68, 0.4);
+         }
+         .contact-button.secondary {
+            background-color: white;
+            color: #222222;
+            border: 1px solid #B0B0B0; /* Grey border */
+         }
+         .contact-button.secondary:hover {
+             background-color: #f7f7f7;
+             border-color: #717171;
+             transform: translateY(-3px) scale(1.02);
+         }
+
+        .contact-button i {
+            margin-right: 0.5rem;
+             width: 20px;
+             height: 20px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 4rem;
+            font-size: 0.875rem;
+            color: #717171;
+            border-top: 1px solid #EBEBEB;
+        }
+
+        /* Animation Classes */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.1); /* Subtle bounce */
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Staggered animation delay */
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+        .delay-400 { transition-delay: 0.4s; }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="top-nav" id="main-nav">
+        <div class="content-container mx-auto flex justify-between items-center h-16">
+            <a href="#" class="text-xl font-bold text-gray-800 hover:text-[#FF385C] transition duration-300">Noman Hamlani</a>
+
+            <div class="hidden md:flex space-x-2">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#contact" class="nav-link">Contact</a>
             </div>
-          </div>
-        </footer>
+
+             <div class="md:hidden">
+                 <button id="mobile-menu-button" class="p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#FF385C]">
+                     <span class="sr-only">Open main menu</span>
+                     <i data-feather="menu"></i>
+                 </button>
+             </div>
+        </div>
+         <div id="mobile-menu" class="md:hidden hidden">
+             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                 <a href="#about" class="block nav-link text-center">About</a>
+                 <a href="#experience" class="block nav-link text-center">Experience</a>
+                 <a href="#education" class="block nav-link text-center">Education</a>
+                 <a href="#skills" class="block nav-link text-center">Skills</a>
+                 <a href="#contact" class="block nav-link text-center">Contact</a>
+             </div>
+         </div>
+    </nav>
+
+    <header id="about" class="hero">
+        <div class="content-container mx-auto">
+            <div class="flex flex-col md:flex-row items-center text-center md:text-left gap-8 md:gap-12 animate-on-scroll">
+                <div class="flex-shrink-0">
+                    <img src="https://media.licdn.com/dms/image/v2/D4E03AQH7mzaSa8bx5A/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1673062139660?e=1751500800&v=beta&t=hK2YVopvbJhbcJ69M4Kj_lnxKVIUoGGBoMtcLonVl68" alt="Noman Hamlani Headshot" class="headshot">
+                </div>
+                <div class="flex-grow">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-3 leading-tight">
+                        Noman Hamlani
+                    </h1>
+                    <p class="text-xl md:text-2xl text-[#FF385C] font-semibold mb-5">
+                        Technical Product Leader
+                    </p>
+                    <p class="text-lg text-gray-600 max-w-xl mx-auto md:mx-0 leading-relaxed">
+                        Senior Product Manager with 5+ years of experience driving product strategy and execution across infrastructure and marketing platforms. Former Solutions Architect turned PM, blending deep technical fluency with strong customer and go-to-market instincts. Passionate about building scalable systems and delivering measurable impact for users and the business.                    </p>
+                     <div class="mt-8 flex justify-center md:justify-start space-x-4">
+                         <a href="#contact" class="contact-button primary">
+                             <i data-feather="mail"></i> Get In Touch
+                         </a>
+                         <a href="https://www.linkedin.com/in/nomanhamlani" target="_blank" rel="noopener noreferrer" class="contact-button secondary">
+                              <i data-feather="linkedin"></i> LinkedIn
+                         </a>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="experience" class="bg-white"> <div class="content-container mx-auto">
+                <h2 class="animate-on-scroll">Work Experience</h2>
+                <div class="content-card animate-on-scroll delay-100">
+                    <div class="job-entry">
+                        <div class="flex items-start mb-2">
+                            <img src="https://media.licdn.com/dms/image/v2/C4E0BAQH_KOQ7AXd1wQ/company-logo_200_200/company-logo_200_200/0/1630630800457/cockroach_labs_logo?e=1752105600&v=beta&t=Mi676KelgM2ogvudAnEad2UoL48XPg9LAjwkTtFocCQ" alt="Cockroach Labs Logo" class="company-logo">
+                            <div>
+                                <h3 class="company-name">Cockroach Labs</h3>
+                                <p class="job-title">Senior Product Manager</p>
+                                <p class="job-details">New York, NY | Jul 2024 - Present</p>
+                            </div>
+                        </div>
+                        <ul class="job-description-list">
+                            <li>Led strategy and roadmap for CockroachDB’s KV layer, including Replication, Distribution, and Transaction subsystems, powering high availability and consistency across globally distributed clusters.</li>
+                            <li>Shipped Replication Admission Control v2 to ensure hitless node operations under load; launched Buffered Writes, improving write throughput by ~30%; and defined requirements for a new replica allocation system to optimize workload distribution.</li>
+                            <li>Engaged directly with enterprise customers running mission critical workloads and synthesized insights from customer conversations and GTM partners to shape roadmap direction</li>
+                        </ul>
+                    </div>
+                    <div class="job-entry">
+                        <div class="flex items-start mb-2">
+                            <img src="https://media.licdn.com/dms/image/v2/D4E0BAQFPN-ayY9td0w/company-logo_200_200/company-logo_200_200/0/1720728713114/iterable_logo?e=1752105600&v=beta&t=pSaS31F1yl9Bj_lsf5S-B9Uyzud5YtgOTi7F502NH5E" alt="Iterable Logo" class="company-logo">
+                            <div>
+                                <h3 class="company-name">Iterable</h3>
+                                <p class="job-title">Senior Product Manager</p>
+                                <p class="job-details">New York, NY | Aug 2021 - Jul 2024</p>
+                            </div>
+                        </div>
+                        <ul class="job-description-list">
+                            <li>Owned the Delivery team, scaling Iterable's sending platform and leading development of enterprise email capabilities and features for advanced growth marketers.</li>
+                            <li>Shipped Custom Send Control, a privacy-centric delivery feature, and Frequency Management, leveraging AI to optimize message volume across channels.</li>
+                            <li>Defined internal SLOs for message deliverability and latency; led initiative to migrate core messaging services to Iterable’s European Data Center.</li>
+                        </ul>
+                        <br><br>
+                        <div class="flex items-start mb-2">
+                            <div>
+                                <p class="job-title">Senior Solutions Architect</p>
+                                <p class="job-details">New York, NY | Aug 2019 - Aug 2021</p>
+                            </div>
+                        </div>
+                        <ul class="job-description-list">
+                            <li>Product managed Iterable’s Shopify integration contributing to $3M+ in ARR; defined roadmap, GTM collateral, and integration specs.</li>
+                            <li>Designed custom marketing architectures for enterprise clients and led technical enablement sessions across Sales and Success teams.</li>
+                        </ul>
+                    </div>
+                     <div class="job-entry">
+                         <div class="flex items-start mb-2">
+                             <img src="https://media.licdn.com/dms/image/v2/D4E0BAQFB_m5_4fK8SA/company-logo_200_200/company-logo_200_200/0/1738696442420/cloudera_logo?e=1752105600&v=beta&t=MIeZYUHDvEsOjrN03VafeVz9vkgopfDeJ86VJUbUFZA" alt="Cloudera Logo" class="company-logo">
+                             <div>
+                                 <h3 class="company-name">Cloudera Inc.</h3>
+                                 <p class="job-title">Senior Solutions Consultant</p>
+                                 <p class="job-details">New York, NY | Jul 2017 - Jul 2019</p>
+                             </div>
+                         </div>
+                         <ul class="job-description-list">
+                             <li>Delivered tailored Hadoop-based data solutions for clients amongst various sectors.</li>
+                             <li>Developed tools for configuration comparison and automated secure cluster deployments on Azure.</li>
+                         </ul>
+                     </div>
+                     <div class="job-entry">
+                         <div class="flex items-start mb-2">
+                             <img src="https://media.licdn.com/dms/image/v2/D4E0BAQE72gHn5DlpMw/company-logo_200_200/company-logo_200_200/0/1719255488792/bny_mellon_logo?e=1752105600&v=beta&t=9Z2caQ_Q-sBjHVIEA7rYib05pbZqAlSjp86wNZkhZHQ" alt="BNY Mellon Logo" class="company-logo">
+                             <div>
+                                 <h3 class="company-name">Bank of New York Mellon</h3>
+                                 <p class="job-title">Software Engineering Intern</p>
+                                 <p class="job-details">New York, NY | Jun 2016 - Aug 2016</p>
+                             </div>
+                         </div>
+                         <ul class="job-description-list">
+                             <li>Developed an FX Hedging analytics suite and back-end investment simulation framework using Java and Python.</li>
+                             <li>Replaced vendor solutions by designing RESTful APIs with Java Spring MVC to handle data requests.</li>
+                         </ul>
+                     </div>
+                     <div class="job-entry">
+                        <div class="flex items-start mb-2">
+                            <img src="https://media.licdn.com/dms/image/v2/C560BAQEp-f9Ptu2yVQ/company-logo_200_200/company-logo_200_200/0/1631319717018?e=1752105600&v=beta&t=m_pD4iaZFc0ShDBxfzapNOzeOtaXXJMr6Z5GB5uaLTM" alt="NYTimes logo" class="company-logo">
+                            <div>
+                                <h3 class="company-name">The New York Times</h3>
+                                <p class="job-title">Android Development Intern</p>
+                                <p class="job-details">New York, NY | Jun 2015 - Aug 2015</p>
+                            </div>
+                        </div>
+                        <ul class="job-description-list">
+                            <li>Designed and developed the Bestsellers List feature for the NYT Android app, enhancing UI with Material Design and improving app performance using OkHTTP.</li>
+                            <li>Streamlined data flow using RxJava and contributed to agile development through bug fixes and UI improvements.</li>
+                        </ul>
+                    </div>
+                     
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <div class="content-container mx-auto">
+                <h2 class="animate-on-scroll">Education</h2>
+                <div class="content-card animate-on-scroll delay-100">
+                    <div class="education-entry">
+                        <img src="https://media.licdn.com/dms/image/v2/C4D0BAQF6TmzLkch0dQ/company-logo_200_200/company-logo_200_200/0/1630556159190/new_york_university_logo?e=1752105600&v=beta&t=yE_WuYxOZcBVKXIXycuHbVx_4A-2wiYSFHF_I_-Vlz4" alt="New York University Logo" class="company-logo flex-shrink-0">
+                        <div>
+                            <h3 class="company-name">New York University Tandon School of Engineering</h3>
+                            <p class="job-title mt-0">Bachelor of Science</p>
+                            <p class="job-details mt-0">Computer Science with a Minor in Finance</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="bg-white">
+            <div class="content-container mx-auto">
+                <h2 class="animate-on-scroll">Technical Skills</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="content-card animate-on-scroll delay-100">
+                        <h3 class="text-xl font-semibold mb-4 flex items-center"><i data-feather="code" class="mr-2 text-[#FF385C]"></i> Languages</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item"><i data-feather="chevron-right"></i>Python</div>
+                            <div class="skill-item"><i data-feather="chevron-right"></i>Java</div>
+                            <div class="skill-item"><i data-feather="chevron-right"></i>C++</div>
+                            <div class="skill-item"><i data-feather="chevron-right"></i>Scala</div>
+                            <div class="skill-item"><i data-feather="chevron-right"></i>HTML</div>
+                            <div class="skill-item"><i data-feather="chevron-right"></i>CSS</div>
+                            <div class="skill-item"><i data-feather="chevron-right"></i>JavaScript</div>
+                            <div class="skill-item"><i data-feather="database"></i>SQL</div>
+                        </div>
+                    </div>
+                    <div class="content-card animate-on-scroll delay-200">
+                        <h3 class="text-xl font-semibold mb-4 flex items-center"><i data-feather="settings" class="mr-2 text-[#FF385C]"></i> Frameworks & Tech</h3>
+                         <div class="skills-grid">
+                            <div class="skill-item"><i data-feather="cpu"></i>Apache Spark</div>
+                            <div class="skill-item"><i data-feather="smartphone"></i>Android SDK</div>
+                            <div class="skill-item"><i data-feather="archive"></i>Hive</div>
+                            <div class="skill-item"><i data-feather="zap"></i>Impala</div>
+                            <div class="skill-item"><i data-feather="shuffle"></i>MapReduce</div>
+                            <div class="skill-item"><i data-feather="git-branch"></i>RxJava</div>
+                            <div class="skill-item"><i data-feather="database"></i>MySQL</div>
+                            <div class="skill-item"><i data-feather="database"></i>PostgreSQL</div>
+                            <div class="skill-item"><i data-feather="search"></i>ElasticSearch</div>
+                            <div class="skill-item"><i data-feather="cloud"></i>Apache Pulsar</div>
+                            <div class="skill-item"><i data-feather="database"></i>Redis</div>
+                            <div class="skill-item"><i data-feather="database"></i>CockroachDB</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="content-container mx-auto text-center">
+                <h2 class="animate-on-scroll">Let's Connect</h2>
+                <p class="text-lg text-gray-600 mb-8 max-w-lg mx-auto animate-on-scroll delay-100">
+                    Interested in discussing product, technology, or potential opportunities? Feel free to reach out.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4 animate-on-scroll delay-200">
+                     <a href="mailto:noman.hamlani@gmail.com" class="contact-button primary w-full sm:w-auto">
+                         <i data-feather="mail"></i> Email Me
+                     </a>
+                     <a href="https://www.linkedin.com/in/nomanhamlani" target="_blank" rel="noopener noreferrer" class="contact-button secondary w-full sm:w-auto">
+                          <i data-feather="linkedin"></i> LinkedIn Profile
+                     </a>
+                 </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="content-container mx-auto">
+            &copy; <span id="current-year"></span> Noman Hamlani. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Set Current Year in Footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+         // Simple Mobile Menu Toggle (Example)
+         const menuButton = document.getElementById('mobile-menu-button');
+         const mobileMenu = document.getElementById('mobile-menu');
+         if (menuButton && mobileMenu) {
+             menuButton.addEventListener('click', () => {
+                 mobileMenu.classList.toggle('hidden');
+                 // Optional: Change icon on toggle
+                 const icon = menuButton.querySelector('i');
+                 if (mobileMenu.classList.contains('hidden')) {
+                     icon.setAttribute('data-feather', 'menu');
+                 } else {
+                     icon.setAttribute('data-feather', 'x');
+                 }
+                 feather.replace(); // Re-render icons
+             });
+
+             // Close mobile menu when a link is clicked
+             mobileMenu.querySelectorAll('a').forEach(link => {
+                 link.addEventListener('click', () => {
+                     mobileMenu.classList.add('hidden');
+                     menuButton.querySelector('i').setAttribute('data-feather', 'menu');
+                     feather.replace();
+                 });
+             });
+         }
 
 
-      </div>
-      <!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script type="text/javascript" src="js/materialize.min.js"></script>
-      <script type="text/javascript" src="js/script.js"></script>
-    </body>
-  </html>
+        // Smooth Scrolling for Nav Links & Scrollspy Highlight (Basic)
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section[id], header[id]'); // Include header#about
+        const navHeight = document.getElementById('main-nav')?.offsetHeight || 64; // Get nav height or default
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - navHeight - 20; // Adjust offset slightly
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                         mobileMenu.classList.add('hidden');
+                         menuButton.querySelector('i').setAttribute('data-feather', 'menu');
+                         feather.replace();
+                    }
+                }
+            });
+        });
+
+        // Intersection Observer for Scroll Animations
+        const animatedElements = document.querySelectorAll('.animate-on-scroll');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    // Optional: unobserve after animation
+                    // observer.unobserve(entry.target);
+                } else {
+                     // Optional: remove class to re-animate on scroll up
+                     // entry.target.classList.remove('is-visible');
+                }
+            });
+        }, {
+            threshold: 0.1 // Trigger when 10% is visible
+        });
+
+        animatedElements.forEach(el => observer.observe(el));
+
+        // Sticky Nav Shadow on Scroll
+        const nav = document.getElementById('main-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+
+            // Basic Scrollspy for active link highlighting
+             let currentSection = '';
+             sections.forEach(section => {
+                 const sectionTop = section.offsetTop - navHeight - 50; // Adjust offset
+                 if (window.pageYOffset >= sectionTop) {
+                     currentSection = section.getAttribute('id');
+                 }
+             });
+
+             navLinks.forEach(link => {
+                 link.classList.remove('active');
+                 if (link.getAttribute('href') === `#${currentSection}`) {
+                     link.classList.add('active');
+                 }
+             });
+
+        });
+
+    </script>
+</body>
+</html>
